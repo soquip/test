@@ -18,63 +18,13 @@
             padding: 20px;
             background-color: #1e1e1e; /* Fondo del contenido */
         }
-
-        /* Estilos para las imágenes */
-        .markdown-body img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin: 10px 0;
-            cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
-            transition: transform 0.2s ease; /* Efecto de transición */
-        }
-
-        /* Efecto al hacer hover sobre las imágenes */
-        .markdown-body img:hover {
-            transform: scale(1.05); /* Aumenta ligeramente el tamaño */
-        }
-
-        /* Estilos para la imagen ampliada */
-        .modal {
-            display: none; /* Oculto por defecto */
-            position: fixed;
-            z-index: 1000;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: #ffcc00; /* Cambia el color al pasar el cursor */
-        }
     </style>
 </head>
 <body>
     <!-- Contenedor con la clase "markdown-body" -->
-
-<h1 id="htb-reddish">HTB: Reddish</h1>
+    <div class="markdown-body">
+        <!-- Pega aquí el contenido de tu README.md convertido a HTML -->
+        <h1 id="htb-reddish">HTB: Reddish</h1>
 <p><strong>Dificultad</strong>: Insane</p>
 <h2 id="descripción">Descripción</h2>
 <p>Muy buena maquina si quieres aprender a hacer pivoting en este caso
@@ -106,7 +56,7 @@ Node-Red</p>
 juntaremos</p>
 <pre><code>http://10.129.233.130:1880/red/539b28f5b68ba7763e18f1f207d4c5f2/</code></pre>
 <figure>
-<img src="/images/image.png" alt="alt text" />
+<img src="./images/image.png" alt="alt text" />
 <figcaption aria-hidden="true">alt text</figcaption>
 </figure>
 <p><code>tcp</code> # tiene que ser de la input class # connect to</p>
@@ -202,7 +152,7 @@ ligolo-ng » start</code></pre>
 <h2 id="recon-del-pivoting">Recon del Pivoting</h2>
 <h4 id="vemos-que-hay-una-web">Vemos que hay una web</h4>
 <figure>
-<img src="/images/r5.png" alt="alt text" />
+<img src="./images/r5.png" alt="alt text" />
 <figcaption aria-hidden="true">alt text</figcaption>
 </figure>
 <p>Al hacer <code>ctrl + u</code> vemos algo interesante</p>
@@ -256,11 +206,11 @@ function backupDatabase() {
 <p>Al tratar de ingresar a una nos da un error interesante que podemos
 ver la ruta <code>/var/www/html</code></p>
 <figure>
-<img src="/images/r6.png" alt="alt text" />
+<img src="./images/r6.png" alt="alt text" />
 <figcaption aria-hidden="true">alt text</figcaption>
 </figure>
 <p>Buscando informacion sobre este puerto <code>6379</code> de
-<code>172.19.0.2</code>, que <img src="/images/r7.png" alt="alt text" />
+<code>172.19.0.2</code>, que <img src="./images/r7.png" alt="alt text" />
 <a
 href="https://book.hacktricks.wiki/en/network-services-pentesting/6379-pentesting-redis.html?highlight=6379#6379---pentesting-redis">HackTricks
 6379 Link</a></p>
@@ -279,7 +229,7 @@ save
 +OK</code></pre>
 <p>Nos vamos a la web de <code>172.19.0.4</code> # si no carga dale save
 otra vez al nc que tenemos arriba</p>
-<p><img src="/images/r8.png" alt="alt text" /> Como no deja desde la web
+<p><img src="./images/r8.png" alt="alt text" /> Como no deja desde la web
 por el método que usamos tendremos hacer la revshell con burpsuite</p>
 <div style="text-align: center;">
 <p><img src="./images/r9.png" alt="red" width="600" /></p>
@@ -326,7 +276,8 @@ rsync error: errors selecting input/output files, dirs (code 3) at util.c(1056) 
 <code>-e shell.rdb</code> y otro llamado <code>shell.rdb</code> para asi
 una rev shell como <code>root</code></p>
 <div style="text-align: center;">
-<p><img src="./images/r10.png" alt="red" width="600" /></p>
+<p><img src="
+       ./images/r10.png" alt="red" width="600" /></p>
 </div>
 <p>La manera que lo haremos sera fácil, primero haremos el tunel para la
 rev shell</p>
@@ -495,56 +446,7 @@ root@backup:/mnt/sda2#</code></pre>
 <p>Al entrar a /root/ encontramos la root.txt</p>
 <pre><code>root@backup:/mnt/sda2/root# cat root.txt
 d8be00d43b29e&lt;REDACTED&gt;8d9b6b0d0a</code></pre>
-
         <!-- Continúa pegando el resto del contenido de tu README.md -->
     </div>
-
-    <!-- Script para manejar el clic en las imágenes -->
-    <script>
-        // Obtener todas las imágenes dentro del contenedor markdown-body
-        const images = document.querySelectorAll('.markdown-body img');
-
-        // Crear el modal
-        const modal = document.createElement('div');
-        modal.classList.add('modal');
-        document.body.appendChild(modal);
-
-        // Crear la imagen dentro del modal
-        const modalImg = document.createElement('img');
-        modalImg.classList.add('modal-content');
-        modal.appendChild(modalImg);
-
-        // Crear el botón para cerrar el modal
-        const closeBtn = document.createElement('span');
-        closeBtn.classList.add('close');
-        closeBtn.innerHTML = '&times;'; // Símbolo de "X"
-        modal.appendChild(closeBtn);
-
-        // Función para abrir el modal con la imagen seleccionada
-        function openModal(src) {
-            modal.style.display = 'block';
-            modalImg.src = src;
-        }
-
-        // Función para cerrar el modal
-        function closeModal() {
-            modal.style.display = 'none';
-        }
-
-        // Asignar eventos a las imágenes
-        images.forEach(img => {
-            img.addEventListener('click', () => openModal(img.src));
-        });
-
-        // Cerrar el modal al hacer clic en la "X"
-        closeBtn.addEventListener('click', closeModal);
-
-        // Cerrar el modal al hacer clic fuera de la imagen
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-    </script>
 </body>
 </html>
