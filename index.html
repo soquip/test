@@ -15,22 +15,22 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="
 <p>Investigando un poco encontré que es el puerto default de
 Node-Red</p>
 <div style="text-align: center;">
-<p><img src="/images/r1.JPG" alt="red" width="50%" /></p>
+<p><img src="./images/r1.JPG" alt="red" width="50%" /></p>
 </div>
 <h3 id="web">Web</h3>
 <p>Al entrar a la web nos recibe un <strong>Get /</strong></p>
 <div style="text-align: center;">
-<p><img src="/images/r2.JPG" alt="red" width="350" /></p>
+<p><img src="./images/r2.JPG" alt="red" width="350" /></p>
 </div>
 <p>Abrimos <code>burpsuite</code> para cambiar el request method</p>
 <div style="text-align: center;">
-<p><img src="/images/r3.JPG" alt="red" width="700" /></p>
+<p><img src="./images/r3.JPG" alt="red" width="700" /></p>
 </div>
 <p>Tenemos <code>id</code> y <code>path</code> asi que los
 juntaremos</p>
 <pre><code>http://10.129.233.130:1880/red/539b28f5b68ba7763e18f1f207d4c5f2/</code></pre>
 <figure>
-<img src="/images/image.png" alt="alt text" />
+<img src="./images/image.png" alt="alt text" />
 <figcaption aria-hidden="true">alt text</figcaption>
 </figure>
 <p><code>tcp</code> # tiene que ser de la input class # connect to</p>
@@ -126,7 +126,7 @@ ligolo-ng » start</code></pre>
 <h2 id="recon-del-pivoting">Recon del Pivoting</h2>
 <h4 id="vemos-que-hay-una-web">Vemos que hay una web</h4>
 <figure>
-<img src="/images/r5.png" alt="alt text" />
+<img src="./images/r5.png" alt="alt text" />
 <figcaption aria-hidden="true">alt text</figcaption>
 </figure>
 <p>Al hacer <code>ctrl + u</code> vemos algo interesante</p>
@@ -180,11 +180,11 @@ function backupDatabase() {
 <p>Al tratar de ingresar a una nos da un error interesante que podemos
 ver la ruta <code>/var/www/html</code></p>
 <figure>
-<img src="/images/r6.png" alt="alt text" />
+<img src="./images/r6.png" alt="alt text" />
 <figcaption aria-hidden="true">alt text</figcaption>
 </figure>
 <p>Buscando informacion sobre este puerto <code>6379</code> de
-<code>172.19.0.2</code>, que <img src="/images/r7.png" alt="alt text" />
+<code>172.19.0.2</code>, que <img src="./images/r7.png" alt="alt text" />
 <a
 href="https://book.hacktricks.wiki/en/network-services-pentesting/6379-pentesting-redis.html?highlight=6379#6379---pentesting-redis">HackTricks
 6379 Link</a></p>
@@ -203,10 +203,10 @@ save
 +OK</code></pre>
 <p>Nos vamos a la web de <code>172.19.0.4</code> # si no carga dale save
 otra vez al nc que tenemos arriba</p>
-<p><img src="/images/r8.png" alt="alt text" /> Como no deja desde la web
+<p><img src="./images/r8.png" alt="alt text" /> Como no deja desde la web
 por el método que usamos tendremos hacer la revshell con burpsuite</p>
 <div style="text-align: center;">
-<p><img src="/images/r9.png" alt="red" width="600" /></p>
+<p><img src="./images/r9.png" alt="red" width="600" /></p>
 </div>
 <p>Ponemos la ip donde tenemos el agente</p>
 <pre><code>ligolo-ng » listener_add --addr 0.0.0.0:5550 --to 127.0.0.1:5555 # agregamos esto nuestro proxy
@@ -251,7 +251,7 @@ rsync error: errors selecting input/output files, dirs (code 3) at util.c(1056) 
 una rev shell como <code>root</code></p>
 <div style="text-align: center;">
 <p><img src="
-       /images/r10.png" alt="red" width="600" /></p>
+       ./images/r10.png" alt="red" width="600" /></p>
 </div>
 <p>La manera que lo haremos sera fácil, primero haremos el tunel para la
 rev shell</p>
