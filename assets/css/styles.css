@@ -1,0 +1,16 @@
+body {
+    background-color: #808080; /* Fondo gris */
+    color: #ffffff; /* Texto blanco */
+    font-family: Arial, sans-serif; /* Fuente legible */
+    margin: 0;
+    padding: 20px;
+}
+
+a {
+    color: #ffcc00; /* Color de enlaces */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
